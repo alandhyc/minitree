@@ -1,9 +1,9 @@
 Package: minitree
-Title: What the Package Does (One Line, Title Case)
+Title: Detect and segment young regenerating trees (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Aland H. Y.", "Chan", , "hyc43@cam.ac.uk", role = c("aut", "cre"))
+Description: Use the pipeline described by Thapa et al. (2026) to detect and segment trees. The pipeline is built in Scotland and is designed to be sensitive to young regenerating trees. The input is a canopy height model created by the lidarSHM package (max_shrub_ht increased to include trees). A wrapper that takes point clouds as input and incorporates parallel processing is under development.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8

@@ -90,16 +90,18 @@ mini_segment<-function(shm_r){
   #Currently the Z values are from the ralative CHM (shrub removed)
   #Convert it back to values from the CHM
   
-  accurate_z<-terra::extract(chm,treetops)
+  accurate_z<-terra::extract(shm_r,treetops)
   
   accurate_z$ID<-treetops$treeID[accurate_z$ID]
   names(accurate_z)<-c("treeID","adjusted_z")
   
   crown_seg<-crown_seg %>% 
-    left_join(accurate_z,by = "treeID")
+    dplyr::left_join(accurate_z,by = "treeID")
   
   crown_seg<-crown_seg %>% 
-    mutate(area = as.numeric(st_area(crown_seg)),.after = "adjusted_z")
+    dplyr::mutate(area = as.numeric(st_area(crown_seg)),.after = "adjusted_z") %>% 
+    dplyr::select(-Z) %>% 
+    dplyr::rename(Z = adjusted_z)
   
   seg<-list(
     seg_treetops = treetops,

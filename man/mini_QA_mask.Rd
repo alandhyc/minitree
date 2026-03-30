@@ -4,7 +4,14 @@
 \alias{mini_QA_mask}
 \title{QA mask for minitree}
 \usage{
-mini_QA_mask(DTM_fp, outdir)
+mini_QA_mask(
+  DTM_fp,
+  outdir,
+  mini_segment_sf_list,
+  slope_thres = 45,
+  sos_thres = 84.5,
+  save_mask = F
+)
 }
 \arguments{
 \item{DTM_fp}{Filepath to the DTM. A DTM of 1m ground resolution was used in Thapa et al. (2026)}
